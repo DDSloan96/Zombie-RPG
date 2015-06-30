@@ -1,0 +1,14 @@
+zombie RPG
+2.5d (shading makes it look 3d)
+death resets you except unlocks
+can't pick up new weapons (craft weapons instead)
+weapon mods
+point system
+tiered leveling
+3 characters
+Different abilities(high D, High A,balanced)
+skill tree
+day/night cycle
+dying lightesque difficulty
+Boss after night
+
