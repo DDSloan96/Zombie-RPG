@@ -10,8 +10,13 @@
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_player_movement</sprite>
     </sprites>
+    <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\sprite6</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_middle_wall</sprite>
+    <sprite>sprites\spr_zombie_other_side</sprite>
+    <sprite>sprites\spr_zombie_side</sprite>
+    <sprite>sprites\spr_zombie_back</sprite>
     <sprite>sprites\spr_zombie</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -22,6 +27,9 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_middle_wall</object>
     <object>objects\obj_zombie</object>
+    <object>objects\obj_marker</object>
+    <object>objects\obj_bullet</object>
+    <object>objects\obj_parent_enemy</object>
     <object>objects\obj_player</object>
   </objects>
   <rooms name="rooms">

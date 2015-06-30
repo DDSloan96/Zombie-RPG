@@ -3,11 +3,39 @@
   <spriteName>spr_zombie</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_parent_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>my_marker = instance_create(x,y,obj_marker) 
+rad = 32 //This is just an example; increase this number to make enemies give each other a wider berth.
+
+mirror = false;
+event_inherited();
+zombie_hp = 5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -51,11 +79,28 @@ vspeed = random_range(-.5, .5);
             <kind>1</kind>
             <string>image_speed = .3
 
+//kill the zombie!
+if zombie_hp &lt;= 0
+{
+    instance_destroy();
+}
+//mirror the sprite to make it seem like it's facing the opposite way
+if mirror = true
+{
+    image_xscale = -1;
+}
+
+else
+{
+    image_xscale = 1;
+}
+
+
 //can you see the zombie behind the wall? NO.
 
 image_alpha = 1
 
-if !collision_line(x, y, obj_player.x, obj_player.y, obj_parent_wall, false, true)
+if !collision_line(x, y, obj_player.x, obj_player.y, obj_parent_wall, false, true) &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_parent_middle_wall, false, true)
 {
     visible = true;
     
@@ -70,6 +115,48 @@ else
     {
         alarm[0] = 10;
     }
+}
+
+// Don't have thew zombies stack
+if instance_number(obj_zombie) &gt; 1 
+then 
+{ 
+    instance_deactivate_object(my_marker) 
+    n_marker = instance_nearest(x,y,obj_marker) 
+    marker_dist = point_distance(x,y,n_marker.x,n_marker.y) 
+    marker_dir = point_direction(x,y,n_marker.x,n_marker.y) 
+    if marker_dist &lt; rad 
+    then 
+    { 
+        x+=lengthdir_x(marker_dist-rad,marker_dir) 
+        y+=lengthdir_y(marker_dist-rad,marker_dir) 
+    } 
+    instance_activate_object(my_marker) 
+} 
+
+my_marker.x = x 
+my_marker.y = y
+
+//turn zombie around if he is facing up
+if vspeed &lt; 0
+{
+    sprite_index = spr_zombie_back;
+}
+
+if hspeed &lt; 0
+{
+    sprite_index = spr_zombie_other_side;
+}
+
+if vspeed &gt; 0
+{
+    sprite_index = spr_zombie
+}
+
+if hspeed &gt; 0
+{
+    sprite_index = spr_zombie_side;
+    
 }
 
 
@@ -108,34 +195,6 @@ y = yprevious;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_zombie">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//redirect zombie if he bumps against wall
-    if alarm[0] = -1
-    {
-        alarm[0] = 3;
-    }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_parent_wall">
       <action>
         <libid>1</libid>
@@ -162,6 +221,15 @@ if alarm[0] = -1
 //bump into wall
 x = xprevious;
 y = yprevious;
+speed = speed * -1;
+
+var p_dir;
+p_dir = point_direction(other.x, other.y, x, y);
+while(place_meeting(x, y, other))
+{
+x += lengthdir_x(0.5, p_dir);
+y += lengthdir_y(0.5, p_dir);
+}
 </string>
           </argument>
         </arguments>
