@@ -18,6 +18,7 @@
     <sprite>sprites\spr_zombie_side</sprite>
     <sprite>sprites\spr_zombie_back</sprite>
     <sprite>sprites\spr_zombie</sprite>
+    <sprite>sprites\sprite10</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
