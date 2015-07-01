@@ -83,6 +83,10 @@ d.speed = obj_bullet.bullet_speed;
 vspeed = 0;
 hspeed = 0;
 
+//Keeps player in room DO NOT CHANGE THE INTEGERS HERE
+x=clamp(x,12,room_width-11);
+y=clamp(y,21,room_height-23);
+
 //keep the player at standard position if he is not moving
 if !keyboard_check(vk_anykey)
 {
@@ -141,6 +145,8 @@ else
 {
     image_xscale = 1;
 }
+
+
 
 </string>
           </argument>
