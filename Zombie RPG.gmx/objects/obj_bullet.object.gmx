@@ -28,6 +28,7 @@
             <string>bullet_speed = 25;
 bullet_damage = 1;
 
+//gets the angle of the bullet
 </string>
           </argument>
         </arguments>
