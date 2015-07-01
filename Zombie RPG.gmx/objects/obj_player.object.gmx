@@ -51,12 +51,12 @@ mirror = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var dir;
-dir = point_direction(x, y, mouse_x, mouse_y);
-var d = instance_create(x,y,obj_bullet);
-d.direction = point_direction(x, y, mouse_x, mouse_y);
+            <string>var d = instance_create(x,y,obj_bullet);
+d.direction=point_direction(x,y,mouse_x,mouse_y);
+
 d.image_angle = d.direction;
-d.speed = obj_bullet.bullet_speed;
+d.phy_speed_x=d.bullet_speed*radtodeg(sin(d.direction));
+d.phy_speed_y=d.bullet_speed*radtodeg(cos(d.direction));
 </string>
           </argument>
         </arguments>
