@@ -19,7 +19,9 @@
     <sprite>sprites\spr_zombie_back</sprite>
     <sprite>sprites\spr_zombie</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_temp_test</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_parent_wall</object>
