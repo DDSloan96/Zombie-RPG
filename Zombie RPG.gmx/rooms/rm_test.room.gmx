@@ -2868,7 +2868,7 @@
     <tile bgName="bg_temp_test" x="176" y="576" w="32" h="32" xo="224" yo="992" id="10004159" name="inst_FE0D5623" depth="999990" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temp_test" x="512" y="224" w="32" h="48" xo="640" yo="1728" id="10004160" name="inst_3A659A6B" depth="999990" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
-  <PhysicsWorld>0</PhysicsWorld>
+  <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
   <PhysicsWorldRight>1024</PhysicsWorldRight>

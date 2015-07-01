@@ -53,7 +53,7 @@ mirror = false;
             <kind>1</kind>
             <string>var dir;
 dir = point_direction(x, y, mouse_x, mouse_y);
-var d = instance_create(x, y, obj_bullet);
+var d = instance_create(x,y,obj_bullet);
 d.direction = point_direction(x, y, mouse_x, mouse_y);
 d.image_angle = d.direction;
 d.speed = obj_bullet.bullet_speed;
@@ -79,15 +79,15 @@ d.speed = obj_bullet.bullet_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handle Input Logic
+            <string>/*
+/// Handle Input Logic
 
 //keep player from moving when nothing is pressed
 vspeed = 0;
 hspeed = 0;
 
 //Keeps player in room DO NOT CHANGE THE INTEGERS HERE
-x=clamp(x,12,room_width-11);
-y=clamp(y,21,room_height-23);
+
 
 //keep the player at standard position if he is not moving
 if !keyboard_check(vk_anykey)
@@ -149,10 +149,11 @@ else
     image_xscale = 1;
 }
 
-/*
+*/
 // Physics for movement with room and character physics enabled
 // Handle Input Logic
-
+phy_position_x=clamp(x,12,room_width-11);
+phy_position_y=clamp(y,21,room_height-23);
 //keep player from moving when nothing is pressed
 vspeed = 0;
 hspeed = 0;
@@ -172,7 +173,7 @@ if !keyboard_check(vk_anykey)
 if (keyboard_check(ord("W")))
 {
     sprite_index = spr_player_movement;
-    phy_position_y -= 1;
+    phy_position_y -= player_speed;
     vspeed -= player_speed;
     image_speed = .3;
     
@@ -182,7 +183,7 @@ if (keyboard_check(ord("W")))
 if (keyboard_check(ord("S")))
 {
     sprite_index = spr_player_movement;
-    phy_position_y += 1;
+    phy_position_y += player_speed;
     vspeed += player_speed;
     image_speed = .3;
     
@@ -192,7 +193,7 @@ if (keyboard_check(ord("S")))
 if (keyboard_check(ord("A")))
 {
     sprite_index = spr_player_movement;
-    phy_position_x -= 1;
+    phy_position_x -= player_speed;
     hspeed -= player_speed;
     image_speed = .3;
        
@@ -202,12 +203,12 @@ if (keyboard_check(ord("A")))
 if (keyboard_check(ord("D")))
 {
     sprite_index = spr_player_movement;  
-    phy_position_x += 1;
+    phy_position_x += player_speed;
     hspeed += player_speed;
     image_speed = .3;
      
 }
-*/
+
 </string>
           </argument>
         </arguments>
@@ -319,10 +320,10 @@ y += lengthdir_y(0.5, p_dir);
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
-  <PhysicsObjectDensity>0.100000001490116</PhysicsObjectDensity>
+  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
@@ -330,5 +331,8 @@ y += lengthdir_y(0.5, p_dir);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>16,27</point>
+    <point>19,27</point>
+  </PhysicsShapePoints>
 </object>

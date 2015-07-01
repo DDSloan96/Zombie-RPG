@@ -100,11 +100,11 @@ else
 
 image_alpha = 1
 
-if !collision_line(x, y, obj_player.x, obj_player.y, obj_parent_wall, false, true) &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_parent_middle_wall, false, true)
+if !collision_line(x, y, obj_player.phy_position_x, obj_player.phy_position_y, obj_parent_wall, false, true) &amp;&amp; !collision_line(x, y, obj_player.phy_position_x, obj_player.phy_position_y, obj_parent_middle_wall, false, true)
 {
     visible = true;
     
-    move_towards_point(obj_player.x, obj_player.y, 2)
+    move_towards_point(obj_player.phy_position_x, obj_player.phy_position_y, 2)
 }
 
 else
@@ -236,9 +236,9 @@ y += lengthdir_y(0.5, p_dir);
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -247,5 +247,10 @@ y += lengthdir_y(0.5, p_dir);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>6,0</point>
+    <point>28,0</point>
+    <point>28,32</point>
+    <point>6,32</point>
+  </PhysicsShapePoints>
 </object>
