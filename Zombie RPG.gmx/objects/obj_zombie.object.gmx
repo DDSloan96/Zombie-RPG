@@ -77,7 +77,8 @@ vspeed = random_range(-.5, .5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = .3
+            <string>/// Zombie Moving and Hit Script
+image_speed = .3
 
 //kill the zombie!
 if zombie_hp &lt;= 0
@@ -100,6 +101,18 @@ else
 
 image_alpha = 1
 
+
+// this allows zombies to move with new physics implementation when players get near
+dist_player = distance_to_object(obj_player); // dist_player = zombies distance from obj_players coordinates
+player_dir = point_direction(x, y, obj_player.x, obj_player.y); // sets the zombie to point towards the obj_player
+if(dist_player &lt; 200) 
+{
+    ldx = lengthdir_x(2.0,player_dir);  // created ldx variable to get the length and direction for x vairable
+    ldy = lengthdir_y(2.0,player_dir);  // created ldy variable to get the length and direction for y vairable
+    phy_position_x += ldx; // adds the distance moved by one ( moving it one space) to the zombies physics coordinates to move towards players
+    phy_position_y += ldy;
+}
+
 if !collision_line(x, y, obj_player.phy_position_x, obj_player.phy_position_y, obj_parent_wall, false, true) &amp;&amp; !collision_line(x, y, obj_player.phy_position_x, obj_player.phy_position_y, obj_parent_middle_wall, false, true)
 {
     visible = true;
@@ -117,7 +130,7 @@ else
     }
 }
 
-// Don't have thew zombies stack
+// Don't have the zombies stack
 if instance_number(obj_zombie) &gt; 1 
 then 
 { 
@@ -238,7 +251,7 @@ y += lengthdir_y(0.5, p_dir);
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -248,9 +261,7 @@ y += lengthdir_y(0.5, p_dir);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>6,0</point>
-    <point>28,0</point>
-    <point>28,32</point>
-    <point>6,32</point>
+    <point>16,16</point>
+    <point>15,27</point>
   </PhysicsShapePoints>
 </object>
