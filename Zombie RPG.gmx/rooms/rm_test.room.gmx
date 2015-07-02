@@ -102,6 +102,13 @@
     <instance objName="obj_TempTree" x="192" y="96" name="inst_AE7C56C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_TempTree" x="129" y="93" name="inst_DB7D3EE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_TempTree" x="72" y="108" name="inst_5A5DB3CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="656" y="304" name="inst_72CC0B90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="656" y="272" name="inst_B0DA0D3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="656" y="240" name="inst_29A96037" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="192" y="224" name="inst_DC39EB20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="544" y="352" name="inst_F30A5D7C" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="608" y="352" name="inst_0B879CA4" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="object11" x="576" y="352" name="inst_E888A1F9" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_temp_test" x="992" y="740" w="32" h="32" xo="32" yo="544" id="10000005" name="inst_439884B6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
