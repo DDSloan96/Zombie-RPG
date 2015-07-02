@@ -51,12 +51,18 @@ mirror = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var d = instance_create(x,y,obj_bullet);
-d.direction=point_direction(x,y,mouse_x,mouse_y);
+            <string>
+with(instance_create(x,y,obj_bullet)){
+    direction=point_direction(x,y,mouse_x,mouse_y)+90;;
+    image_angle = direction;
+    phy_speed_x=bullet_speed*sin(degtorad(direction));
+    phy_speed_y=bullet_speed*cos(degtorad(direction));
+}
 
-d.image_angle = d.direction;
-d.phy_speed_x=d.bullet_speed*radtodeg(sin(d.direction));
-d.phy_speed_y=d.bullet_speed*radtodeg(cos(d.direction));
+//I think this doesnt work unless you have pro!!!
+
+
+
 </string>
           </argument>
         </arguments>
