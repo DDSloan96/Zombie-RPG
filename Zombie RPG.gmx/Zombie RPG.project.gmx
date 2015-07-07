@@ -6,10 +6,6 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="player">
-      <sprite>sprites\spr_player</sprite>
-      <sprite>sprites\spr_player_movement</sprite>
-    </sprites>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\sprite6</sprite>
     <sprite>sprites\spr_wall</sprite>
@@ -19,7 +15,11 @@
     <sprite>sprites\spr_zombie_back</sprite>
     <sprite>sprites\spr_zombie</sprite>
     <sprite>sprites\spr_TempTree</sprite>
-    <sprite>sprites\sprite12</sprite>
+    <sprite>sprites\spr_barrel</sprite>
+    <sprite>sprites\spr_player_up</sprite>
+    <sprite>sprites\spr_player_down</sprite>
+    <sprite>sprites\spr_player_left</sprite>
+    <sprite>sprites\spr_player_right</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_temp_test</background>
@@ -36,7 +36,7 @@
     <object>objects\obj_parent_enemy</object>
     <object>objects\obj_player</object>
     <object>objects\obj_TempTree</object>
-    <object>objects\object11</object>
+    <object>objects\obj_barrel</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
